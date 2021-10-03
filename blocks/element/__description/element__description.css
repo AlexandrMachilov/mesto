@@ -1,0 +1,8 @@
+.element__description {
+  background-color: #fff;
+  height: 79px;
+  width: 100%;
+  padding: 25px 15px 31px 21px;
+  position: relative;
+  box-sizing: border-box;
+}
