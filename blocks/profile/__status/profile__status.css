@@ -8,4 +8,12 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  max-width: 294px;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__status {
+    font-size: 14px;
+    max-width: 260px;
+  }
 }
