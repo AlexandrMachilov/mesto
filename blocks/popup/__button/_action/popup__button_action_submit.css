@@ -1,0 +1,14 @@
+.popup__button_action_submit {
+  background-color: #000;
+  color: #fff;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  padding: 0;
+  border: none;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 2px;
+}
