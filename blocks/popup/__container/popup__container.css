@@ -2,7 +2,7 @@
   box-sizing: border-box;
   background-color: #fff;
   min-width: 430px;
-  min-height: 330px;
+  max-height: 330px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
