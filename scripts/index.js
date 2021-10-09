@@ -13,7 +13,7 @@ function openPopup() {
     fieldStatus.value = profileStatus.textContent;
     popup.classList.add('popup_isOpen');
     console.log('open');
-    }
+}
 
 function closePopup() {
     popup.classList.remove('popup_isOpen');
@@ -25,8 +25,15 @@ function submitForm(event) {
     profileName.textContent = fieldName.value;
     profileStatus.textContent = fieldStatus.value;
     closePopup();
+}
+
+function popupClickHandler(event) {
+    if (event.target.classList.contains('popup')) {
+      closePopup();
     }
+}
 
 profileEditButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
+popup.addEventListener('click', popupClickHandler);
 popupForm.addEventListener('submit', submitForm);
