@@ -10,7 +10,7 @@
   align-items: baseline;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 425px) {
   .profile__info {
     gap: 14px 10px;
     max-height: 54px;

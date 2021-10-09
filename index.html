@@ -27,13 +27,20 @@
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <p class="profile__status">Исследователь океана</p>
-              <button class="button button__action_edit"></button>
+              <button
+                class="button profile__button profile__button_action_edit"
+              ></button>
             </div>
           </div>
-          <button class="button button__action_add"></button>
+          <button
+            class="button profile__button profile__button_action_add"
+          ></button>
         </section>
 
-        <section class="elements content__section">
+        <section
+          class="elements content__section"
+          aria-label="Карточки с фотографиями"
+        >
           <article class="element">
             <img
               src="./images/photo-karachaevsk.jpg"
@@ -42,7 +49,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Карачаевск</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
 
@@ -54,7 +63,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Гора Эльбрус</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
 
@@ -66,7 +77,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Домбай</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
 
@@ -78,7 +91,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Маньпупунёр</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
 
@@ -90,7 +105,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Гамсутль</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
 
@@ -102,7 +119,9 @@
             />
             <div class="element__description">
               <h2 class="element__title">Карелия</h2>
-              <button class="button button__action_like"></button>
+              <button
+                class="button element__button element__button_action_like"
+              ></button>
             </div>
           </article>
         </section>
@@ -115,8 +134,16 @@
           <button class="popup__button popup__button_action_close"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form">
-            <input type="text" class="popup__input popup__input_type_name" required/>
-            <input type="text" class="popup__input popup__input_type_status" required/>
+            <input
+              type="text"
+              class="popup__input popup__input_type_name"
+              required
+            />
+            <input
+              type="text"
+              class="popup__input popup__input_type_status"
+              required
+            />
             <button class="popup__button popup__button_action_submit">
               Сохранить
             </button>
