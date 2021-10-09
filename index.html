@@ -28,11 +28,13 @@
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <p class="profile__status">Исследователь океана</p>
               <button
+                type="button"
                 class="button profile__button profile__button_action_edit"
               ></button>
             </div>
           </div>
           <button
+            type="button"
             class="button profile__button profile__button_action_add"
           ></button>
         </section>
@@ -50,6 +52,7 @@
             <div class="element__description">
               <h2 class="element__title">Карачаевск</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -64,6 +67,7 @@
             <div class="element__description">
               <h2 class="element__title">Гора Эльбрус</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -78,6 +82,7 @@
             <div class="element__description">
               <h2 class="element__title">Домбай</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -92,6 +97,7 @@
             <div class="element__description">
               <h2 class="element__title">Маньпупунёр</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -106,6 +112,7 @@
             <div class="element__description">
               <h2 class="element__title">Гамсутль</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -120,6 +127,7 @@
             <div class="element__description">
               <h2 class="element__title">Карелия</h2>
               <button
+                type="button"
                 class="button element__button element__button_action_like"
               ></button>
             </div>
@@ -127,24 +135,32 @@
         </section>
       </main>
       <footer class="footer page__footer">
-        <h3 class="footer__title">&copy; 2020 Mesto Russia</h3>
+        <p class="footer__title">&copy; 2020 Mesto Russia</p>
       </footer>
       <div class="popup">
         <div class="popup__container">
-          <button class="popup__button popup__button_action_close"></button>
+          <button
+            type="button"
+            class="popup__button popup__button_action_close"
+          ></button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="popup__form">
+          <form class="popup__form" name="popup-form">
             <input
               type="text"
               class="popup__input popup__input_type_name"
+              name="profile-name"
               required
             />
             <input
               type="text"
               class="popup__input popup__input_type_status"
+              name="profile-status"
               required
             />
-            <button class="popup__button popup__button_action_submit">
+            <button
+              type="submit"
+              class="popup__button popup__button_action_submit"
+            >
               Сохранить
             </button>
           </form>

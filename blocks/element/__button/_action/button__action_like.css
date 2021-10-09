@@ -1,7 +1,4 @@
 .element__button_action_like {
-  position: absolute;
-  right: 20px;
-  bottom: 30px;
   width: 22px;
   height: 19px;
   background-image: url(../../../../images/button-icon-like.svg);

@@ -11,13 +11,11 @@ const fieldStatus = document.querySelector('.popup__input_type_status');
 function openPopup() {
     fieldName.value = profileName.textContent; 
     fieldStatus.value = profileStatus.textContent;
-    popup.classList.add('popup_isOpen');
-    console.log('open');
+    popup.classList.add('popup_isopen');
 }
 
 function closePopup() {
-    popup.classList.remove('popup_isOpen');
-    console.log('close');
+    popup.classList.remove('popup_isopen');
 } 
 
 function submitForm(event) {

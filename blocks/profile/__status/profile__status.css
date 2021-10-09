@@ -1,6 +1,6 @@
 .profile__status {
   grid-area: status;
-  font-family: Inter;
+  font-family: Inter, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.22;
@@ -15,5 +15,6 @@
   .profile__status {
     font-size: 14px;
     max-width: 260px;
+    justify-self: center;
   }
 }
