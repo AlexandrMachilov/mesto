@@ -10,7 +10,6 @@
   max-height: 27px;
   margin-bottom: 30px;
   padding-bottom: 13px;
-  box-sizing: border-box;
 }
 
 .popup__input:focus {
