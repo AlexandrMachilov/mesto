@@ -35,5 +35,5 @@ function popupClickHandler(event) {
 
 profileEditButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
-popup.addEventListener('click', popupClickHandler);
+popup.addEventListener('mouseup', popupClickHandler);
 popupForm.addEventListener('submit', submitForm);
