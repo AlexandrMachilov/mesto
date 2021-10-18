@@ -42,102 +42,14 @@
         <section
           class="elements content__section"
           aria-label="Карточки с фотографиями"
-        >
-          <article class="element">
-            <img
-              src="./images/photo-karachaevsk.jpg"
-              alt="Фото Карачаевск"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Карачаевск</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-
-          <article class="element">
-            <img
-              src="./images/photo-elbrus.jpg"
-              alt="Фото Эльбрус"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-
-          <article class="element">
-            <img
-              src="./images/photo-dombai.jpg"
-              alt="Фото Домбай"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Домбай</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-
-          <article class="element">
-            <img
-              src="./images/photo-komi.jpg"
-              alt="Фото Маньпупунёр"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Маньпупунёр</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-
-          <article class="element">
-            <img
-              src="./images/photo-gamsutl.jpg"
-              alt="Фото Гамсутль"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Гамсутль</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-
-          <article class="element">
-            <img
-              src="./images/photo-ruskeala.jpg"
-              alt="Фото Рускеала"
-              class="element__image"
-            />
-            <div class="element__description">
-              <h2 class="element__title">Карелия</h2>
-              <button
-                type="button"
-                class="button element__button element__button_action_like"
-              ></button>
-            </div>
-          </article>
-        </section>
+        ></section>
       </main>
       <footer class="footer page__footer">
         <p class="footer__title">&copy; 2020 Mesto Russia</p>
       </footer>
-      <div class="popup">
+
+      <!-- Edit popup -->
+      <div class="popup popup__content_edit">
         <div class="popup__container">
           <button
             type="button"
@@ -166,6 +78,52 @@
           </form>
         </div>
       </div>
+
+      <!-- Add popup -->
+      <div class="popup popup__content_add">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__button popup__button_action_close"
+          ></button>
+          <h3 class="popup__title">Новое место</h3>
+          <form class="popup__form" name="popup-form">
+            <input
+              type="text"
+              class="popup__input popup__input_type_place-name"
+              name="place-name"
+              placeholder="Название"
+              required
+            />
+            <input
+              type="text"
+              class="popup__input popup__input_type_place-url"
+              name="place-url"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <button
+              type="submit"
+              class="popup__button popup__button_action_submit"
+            >
+              Создать
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <template class="element-template">
+        <article class="element">
+          <img src="" alt="" class="element__image" />
+          <div class="element__description">
+            <h2 class="element__title"></h2>
+            <button
+              type="button"
+              class="button element__button element__button_action_like"
+            ></button>
+          </div>
+        </article>
+      </template>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
