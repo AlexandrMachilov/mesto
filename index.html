@@ -71,7 +71,11 @@
             />
             <button
               type="submit"
-              class="popup__button popup__button_action_submit"
+              class="
+                popup__button
+                popup__button_action_submit
+                popup__button_action_edit
+              "
             >
               Сохранить
             </button>
@@ -87,7 +91,7 @@
             class="popup__button popup__button_action_close"
           ></button>
           <h3 class="popup__title">Новое место</h3>
-          <form class="popup__form" name="popup-form">
+          <form class="popup__form popup__form_add-content" name="popup-form">
             <input
               type="text"
               class="popup__input popup__input_type_place-name"
@@ -104,7 +108,11 @@
             />
             <button
               type="submit"
-              class="popup__button popup__button_action_submit"
+              class="
+                popup__button
+                popup__button_action_submit
+                popup__button_action_add-content
+              "
             >
               Создать
             </button>
@@ -115,6 +123,9 @@
       <template class="element-template">
         <article class="element">
           <img src="" alt="" class="element__image" />
+          <button
+            class="button element__button element__button_action_delete"
+          ></button>
           <div class="element__description">
             <h2 class="element__title"></h2>
             <button
