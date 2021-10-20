@@ -53,7 +53,11 @@
         <div class="popup__container">
           <button
             type="button"
-            class="popup__button popup__button_action_close"
+            class="
+              popup__button
+              popup__button_action_close
+              popup__button_action_close-edit
+            "
           ></button>
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="popup-form">
@@ -88,7 +92,11 @@
         <div class="popup__container">
           <button
             type="button"
-            class="popup__button popup__button_action_close"
+            class="
+              popup__button
+              popup__button_action_close
+              popup__button_action_close-add
+            "
           ></button>
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form popup__form_add-content" name="popup-form">
@@ -120,6 +128,25 @@
         </div>
       </div>
 
+      <div class="popup popup__content_full-size popup_isopen">
+        <figure class="popup__figure">
+          <button
+            type="button"
+            class="
+              popup__button
+              popup__button_action_close
+              popup__button_action_close-image
+            "
+          ></button>
+          <img
+            src="./images/photo-elbrus.jpg"
+            alt="Карачаевск"
+            class="popup__image"
+          />
+          <figcaption class="popup__caption">Архыз</figcaption>
+        </figure>
+      </div>
+
       <template class="element-template">
         <article class="element">
           <img src="" alt="" class="element__image" />
@@ -134,6 +161,13 @@
             ></button>
           </div>
         </article>
+
+        <!-- <div class="popup popup__content_full-size">
+          <figure class="popup__figure">
+            <img src="" alt="" class="popup__image" />
+            <figcaption class="popup__caption"></figcaption>
+          </figure>
+        </div> -->
       </template>
     </div>
     <script src="./scripts/index.js"></script>
