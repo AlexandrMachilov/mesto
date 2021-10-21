@@ -30,7 +30,7 @@
 @import url(../blocks/element/__button/element__button.css);
 @import url(../blocks/element/__button/_action/element__button_action_delete.css);
 @import url(../blocks/element/__button/_action/element__button_action_like.css);
-@import url(../blocks/element/__button/_action/element__button_action_like_active.css); /* test */
+@import url(../blocks/element/__button/_action/element__button_action_like_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__title/footer__title.css);
