@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 //Edit profile feature
 const popupEditProfile = document.querySelector('.popup_edit');
 const popupCloseButton = document.querySelector('.popup__button_action_close');
@@ -78,6 +77,7 @@ function createElement(card){
     const popupImage = popupShowImage.querySelector('.popup__image');
     const popupCaption = popupShowImage.querySelector('.popup__caption');
     popupImage.src = elementImage.src;
+    popupImage.alt = elementImage.alt;
     popupCaption.textContent = elementTitle.textContent;
     openPopup(popupShowImage);
 })
@@ -99,8 +99,6 @@ function openPopup(popupName) {
 function closePopup(popupName) {
 popupName.classList.remove('popup_isopen');
 } 
-
-
 
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
