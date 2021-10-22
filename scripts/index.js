@@ -1,6 +1,6 @@
 const popup = document.querySelector('.popup');
 //Edit profile feature
-const popupEditProfile = document.querySelector('.popup__edit');
+const popupEditProfile = document.querySelector('.popup_edit');
 const popupCloseButton = document.querySelector('.popup__button_action_close');
 const profileEditButton = document.querySelector('.profile__button_action_edit');
 const popupForm = document.querySelector('.popup__form');
@@ -14,14 +14,14 @@ const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('.element-template').content;
 //Add content feature
 const contentAddButton = document.querySelector('.profile__button_action_add');
-const popupAddContent = document.querySelector('.popup__add');
+const popupAddContent = document.querySelector('.popup_add');
 const popupFormAddContent = document.querySelector('.popup__form_add-content');
 const placeName = document.querySelector('.popup__input_type_place-name');
 const placeUrl = document.querySelector('.popup__input_type_place-url');
 const addContentButton = document.querySelector('.popup__button_action_add-content');
 const popupCloseButtonAdd = document.querySelector('.popup__button_action_close-add');
 
-const popupShowImage = document.querySelector('.popup__show-image');
+const popupShowImage = document.querySelector('.popup_show-image');
 const popupCloseButtonImage = document.querySelector('.popup__button_action_close-image');
 
 const initialCards = [

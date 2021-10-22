@@ -50,4 +50,4 @@
 @import url(../blocks/popup/__figure/popup__figure.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__caption/popup__caption.css);
-@import url(../blocks/popup/__show-image/popup__show-image.css);
+@import url(../blocks/popup/_show-image/popup_show-image.css);
