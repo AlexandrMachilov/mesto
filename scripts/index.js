@@ -19,7 +19,7 @@ const placeName = document.querySelector('.popup__input_type_place-name');
 const placeUrl = document.querySelector('.popup__input_type_place-url');
 const addContentButton = document.querySelector('.popup__button_action_add-content');
 const popupCloseButtonAdd = document.querySelector('.popup__button_action_close-add');
-
+//Show full-size images feature
 const popupShowImage = document.querySelector('.popup_show-image');
 const popupCloseButtonImage = document.querySelector('.popup__button_action_close-image');
 
@@ -81,7 +81,8 @@ function createElement(card){
     popupCaption.textContent = elementTitle.textContent;
     openPopup(popupShowImage);
 })
-  popupCloseButtonImage.addEventListener('click', () => closePopup(popupShowImage))
+  closePopup(popupShowImage)
+  //popupCloseButtonImage.addEventListener('click', () => closePopup(popupShowImage))
   return element;
 };
 
@@ -96,9 +97,11 @@ function openPopup(popupName) {
   popupName.classList.add('popup_isopen');
 }
 
-function closePopup(popupName) {
+/* function closePopup(popupName) {
 popupName.classList.remove('popup_isopen');
-} 
+}   */
+
+
 
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
@@ -126,7 +129,39 @@ function addElement(event){
 
 popupFormAddContent.addEventListener('submit', addElement);
 profileEditButton.addEventListener('click', openEditPopup);
-popupCloseButtonEdit.addEventListener('click',()=> closePopup(popupEditProfile));
+//popupCloseButtonEdit.addEventListener('click',() => closePopup(popupEditProfile));
 popupForm.addEventListener('submit', editProfile);
 contentAddButton.addEventListener('click',() => openPopup(popupAddContent));
-popupCloseButtonAdd.addEventListener('click', ()=> closePopup(popupAddContent));
+//popupCloseButtonAdd.addEventListener('click', () => closePopup(popupAddContent));
+
+/*=================================================================================*/
+const popupList = Array.from(document.querySelectorAll('.popup'));
+function popupCloseHandler(popupList){
+  popupList.forEach((popup) => setCloseButtons(popup));
+};
+
+popupCloseHandler(popupList);
+
+function closePopup(popupName) {
+  popupName.classList.remove('popup_isopen');
+}
+
+function setCloseButtons(popup) {
+  const closeButtonList = Array.from(popup.querySelectorAll('.popup__button_action_close'));
+  closeButtonList.forEach((closeButton) => {
+    closeButton.addEventListener('click', () => closePopup(popup))
+});
+}
+
+ function popupClickHandler(event) {
+    if (event.target.classList.contains('popup')) {
+      closePopup(popup);
+    }
+} 
+
+
+
+popupList.forEach((popup)=>{
+  popup.addEventListener('click', popupClickHandler);
+})
+/*=================================================================================*/
