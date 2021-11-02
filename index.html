@@ -60,21 +60,30 @@
             "
           ></button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="popup__form" name="popup-form">
+          <form class="popup__form" name="popup-form" novalidate>
             <input
               type="text"
               class="popup__input popup__input_type_name"
               name="profile-name"
+              id="profile-name"
               placeholder="Имя"
+              autocomplete="off"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span class="popup__input-error profile-name-input-error"></span>
             <input
               type="text"
               class="popup__input popup__input_type_status"
               name="profile-status"
+              id="profile-status"
               placeholder="Профессиональная деятельность"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span class="popup__input-error profile-status-input-error"></span>
             <button
               type="submit"
               class="
@@ -101,21 +110,31 @@
             "
           ></button>
           <h3 class="popup__title">Новое место</h3>
-          <form class="popup__form popup__form_add-content" name="popup-form">
+          <form
+            class="popup__form popup__form_add-content"
+            name="popup-form"
+            novalidate
+          >
             <input
               type="text"
               class="popup__input popup__input_type_place-name"
               name="place-name"
+              id="place-name"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
               required
             />
+            <span class="popup__input-error place-name-input-error"></span>
             <input
               type="url"
               class="popup__input popup__input_type_place-url"
               name="place-url"
+              id="place-url"
               placeholder="Ссылка на картинку"
               required
             />
+            <span class="popup__input-error place-url-input-error"></span>
             <button
               type="submit"
               class="
@@ -163,5 +182,6 @@
       </template>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

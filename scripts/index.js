@@ -153,15 +153,14 @@ function setCloseButtons(popup) {
 });
 }
 
+/*
  function popupClickHandler(event) {
     if (event.target.classList.contains('popup')) {
-      closePopup(popup);
+      closePopup();
     }
 } 
 
-
-
 popupList.forEach((popup)=>{
   popup.addEventListener('click', popupClickHandler);
-})
+})*/
 /*=================================================================================*/
