@@ -13,7 +13,7 @@ function enableValidation(validationConfig) {
 }
 
 function setFormListeners(form, config) {
-  form.addEventListener('submit', handlerSubmit);
+  form.addEventListener('submit', handleSubmit);
   form.addEventListener('input', () => setSubmitButtonState(form, config));
   const inputsList =[...form.querySelectorAll(config.inputSelector)];
   inputsList.forEach(inputElement => {
@@ -23,7 +23,7 @@ function setFormListeners(form, config) {
   setSubmitButtonState(form, config);
 }
 
-function handlerSubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
 }
 
@@ -47,6 +47,11 @@ function hideError(input, form, config) {
   input.classList.remove(config.inputErrorClass);
   errorElement.classList.remove(config.errorClass);
   errorElement.textContent = '';
+}
+
+function hideInputErrors(form, config) {
+  const inputsList =[...form.querySelectorAll(config.inputSelector)];
+  inputsList.forEach((input) => hideError(input, form, config));
 }
 
 function setSubmitButtonState(form, config) {

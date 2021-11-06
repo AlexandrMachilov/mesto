@@ -1,8 +1,9 @@
+const popupList = [...document.querySelectorAll('.popup')];
 //Edit profile feature
 const popupEditProfile = document.querySelector('.popup_edit');
 const popupCloseButton = document.querySelector('.popup__button_action_close');
 const profileEditButton = document.querySelector('.profile__button_action_edit');
-const popupForm = document.querySelector('.popup__form');
+const popupFormEditContent = document.querySelector('.popup__form_edit-content');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 const fieldName = document.querySelector('.popup__input_type_name');
@@ -73,7 +74,7 @@ function createElement(card){
   elementTitle.textContent = card.name;
   elementButtonDelete.addEventListener('click', deleteElement);
   elementButtonLike.addEventListener('click', likeElement);
-  elementImage.addEventListener('click', (event) => {
+  elementImage.addEventListener('click', (event) => {   //переделать в отдельную функцию
     const popupImage = popupShowImage.querySelector('.popup__image');
     const popupCaption = popupShowImage.querySelector('.popup__caption');
     popupImage.src = elementImage.src;
@@ -82,7 +83,6 @@ function createElement(card){
     openPopup(popupShowImage);
 })
   closePopup(popupShowImage)
-  //popupCloseButtonImage.addEventListener('click', () => closePopup(popupShowImage))
   return element;
 };
 
@@ -97,15 +97,10 @@ function openPopup(popupName) {
   popupName.classList.add('popup_isopen');
 }
 
-/* function closePopup(popupName) {
-popupName.classList.remove('popup_isopen');
-}   */
-
-
-
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
   fieldStatus.value = profileStatus.textContent;
+  checkPopupState(popupEditProfile, config);
   openPopup(popupEditProfile);
 }
 
@@ -123,44 +118,39 @@ function addElement(event){
     link: placeUrl.value
   }
   prependElement(card);
-  event.target.reset();
   closePopup(popupAddContent);
 }
 
-popupFormAddContent.addEventListener('submit', addElement);
-profileEditButton.addEventListener('click', openEditPopup);
-//popupCloseButtonEdit.addEventListener('click',() => closePopup(popupEditProfile));
-popupForm.addEventListener('submit', editProfile);
-contentAddButton.addEventListener('click',() => openPopup(popupAddContent));
-//popupCloseButtonAdd.addEventListener('click', () => closePopup(popupAddContent));
+function openAddPopup() {
+  popupFormAddContent.reset();
+  checkPopupState(popupAddContent, config);
+  openPopup(popupAddContent);
+}
 
-/*=================================================================================*/
-const popupList = Array.from(document.querySelectorAll('.popup'));
+function checkPopupState(popup, config) {
+  const form = popup.querySelector(config.formSelector);
+  setSubmitButtonState(form, config);
+  hideInputErrors(form, config);
+}
+
+profileEditButton.addEventListener('click', openEditPopup);
+popupFormEditContent.addEventListener('submit', editProfile);
+contentAddButton.addEventListener('click', openAddPopup);
+popupFormAddContent.addEventListener('submit', addElement);
+
 function popupCloseHandler(popupList){
   popupList.forEach((popup) => setCloseButtons(popup));
 };
 
 popupCloseHandler(popupList);
 
-function closePopup(popupName) {
-  popupName.classList.remove('popup_isopen');
-}
-
 function setCloseButtons(popup) {
-  const closeButtonList = Array.from(popup.querySelectorAll('.popup__button_action_close'));
+  const closeButtonList = [...popup.querySelectorAll('.popup__button_action_close')];
   closeButtonList.forEach((closeButton) => {
     closeButton.addEventListener('click', () => closePopup(popup))
 });
 }
 
-/*
- function popupClickHandler(event) {
-    if (event.target.classList.contains('popup')) {
-      closePopup();
-    }
+function closePopup(popupName) {
+  popupName.classList.remove('popup_isopen');
 } 
-
-popupList.forEach((popup)=>{
-  popup.addEventListener('click', popupClickHandler);
-})*/
-/*=================================================================================*/
