@@ -23,6 +23,8 @@ const popupCloseButtonAdd = document.querySelector('.popup__button_action_close-
 //Show full-size images feature
 const popupShowImage = document.querySelector('.popup_show-image');
 const popupCloseButtonImage = document.querySelector('.popup__button_action_close-image');
+const popupImage = popupShowImage.querySelector('.popup__image');
+const popupCaption = popupShowImage.querySelector('.popup__caption');
 
 const initialCards = [
     {
@@ -63,6 +65,8 @@ function prependElement(card){
   elements.prepend(element);
 }
 
+
+
 function createElement(card){
   const element = elementTemplate.querySelector('.element').cloneNode(true);
   const elementImage = element.querySelector('.element__image');
@@ -74,21 +78,22 @@ function createElement(card){
   elementTitle.textContent = card.name;
   elementButtonDelete.addEventListener('click', deleteElement);
   elementButtonLike.addEventListener('click', likeElement);
-  elementImage.addEventListener('click', (event) => {   //переделать в отдельную функцию
-    const popupImage = popupShowImage.querySelector('.popup__image');
-    const popupCaption = popupShowImage.querySelector('.popup__caption');
-    popupImage.src = elementImage.src;
-    popupImage.alt = elementImage.alt;
-    popupCaption.textContent = elementTitle.textContent;
-    openPopup(popupShowImage);
-})
+  elementImage.addEventListener('click', ()=> showImage(card));
   closePopup(popupShowImage)
   return element;
 };
 
+const showImage = (data) => {
+  popupImage.src = data.link;
+  popupImage.alt = data.name;
+  popupCaption.textContent = data.name;
+  openPopup(popupShowImage);
+} 
+
 function deleteElement(event){
   event.target.closest('.element').remove();  
 }
+
 function likeElement(event){
   event.target.classList.toggle('element__button_action_like_active');
 }
