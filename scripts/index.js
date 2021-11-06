@@ -95,6 +95,8 @@ function likeElement(event){
 
 function openPopup(popupName) {
   popupName.classList.add('popup_isopen');
+  document.addEventListener('keydown', closeByEsc);
+  document.addEventListener('mouseup', closeByOverlay);
 }
 
 function openEditPopup() {
@@ -153,4 +155,21 @@ function setCloseButtons(popup) {
 
 function closePopup(popupName) {
   popupName.classList.remove('popup_isopen');
+  document.removeEventListener('keydown', closeByEsc);
+  document.removeEventListener('mouseup', closeByOverlay);
 } 
+
+ function closeByEsc(event) {
+  const openedPopup = document.querySelector('.popup_isopen');
+   if (event.key === 'Escape') {
+    closePopup(openedPopup);
+  } 
+} 
+
+function closeByOverlay(event) {
+  const openedPopup = document.querySelector('.popup_isopen');
+  if (event.target.classList.contains('popup')) {
+    closePopup(openedPopup);
+  }
+}
+
