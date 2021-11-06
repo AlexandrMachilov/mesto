@@ -1,5 +1,6 @@
 .content {
   margin: 40px 0 66px;
+  flex: 1 1 auto;
 }
 
 @media screen and (max-width: 425px) {
