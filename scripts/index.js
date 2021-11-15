@@ -23,8 +23,9 @@ const placeUrl = document.querySelector('.popup__input_type_place-url');
 //Show full-size images feature
 //const popupCloseButtonImage = document.querySelector('.popup__button_action_close-image');
 
-
+import {initialCards} from './initial-cards.js';
 import {Card} from './Card.js';
+import {FormValidator, config} from "./validate.js";
 
 function appendElement(item){
   const card = new Card(item, '.element-template');
@@ -89,9 +90,11 @@ function openPopup(popupName) {
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
   fieldStatus.value = profileStatus.textContent;
-  checkPopupState(popupEditProfile, config);
+  //checkPopupState(popupEditProfile);        //настроить работу без этого метода
+  //checkPopupState(popupEditProfile, config);
+  new FormValidator(config, popupFormEditContent).enableValidation(); 
   openPopup(popupEditProfile);
-}
+}  
 
 function editProfile(event) {
   event.preventDefault();
@@ -113,9 +116,12 @@ function addElement(event){
 }
 
 function openAddPopup() {
-  checkPopupState(popupAddContent, config);
+  popupFormAddContent.reset();
+  //checkPopupState(popupAddContent, config);
+  //checkPopupState(popupAddContent);
+  new FormValidator(config, popupFormAddContent).enableValidation(); 
   openPopup(popupAddContent);
-}
+}  
 
 
 
@@ -158,3 +164,8 @@ function closeByOverlay(event) {
 }
 export {openPopup, closePopup};
 
+window.addEventListener('load', ()=>{
+  document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'))
+})
+
+//new FormValidator(config).enableValidation(); 

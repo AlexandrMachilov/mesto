@@ -51,29 +51,5 @@ class Card {
     }
 }
 
-/* function openPopup(popupName) {
-  popupName.classList.add('popup_isopen');
-  document.addEventListener('keydown', closeByEsc);
-  document.addEventListener('click', closeByOverlay);
-}
-function closePopup(popupName) {
-  popupName.classList.remove('popup_isopen');
-  document.removeEventListener('keydown', closeByEsc);
-  document.removeEventListener('click', closeByOverlay);
-} 
-
- function closeByEsc(event) {
-  const openedPopup = document.querySelector('.popup_isopen');
-   if (event.key === 'Escape') {
-    closePopup(openedPopup);
-  } 
-} 
-
-function closeByOverlay(event) {
-  const openedPopup = document.querySelector('.popup_isopen');
-  if (event.target.classList.contains('popup')) {
-    closePopup(openedPopup);
-  }
-} */
-import {openPopup, closePopup} from './index.js';
+import {openPopup} from './index.js';
 export {Card};
