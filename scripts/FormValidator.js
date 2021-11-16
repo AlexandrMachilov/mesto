@@ -40,7 +40,8 @@ class FormValidator {
         this._setSubmitButtonState();
     });  
     });
-    this._setSubmitButtonState();
+    //this._setSubmitButtonState();
+    this._checkPopupState();
   } 
 
   _handlerFieldValidation(input) {
@@ -67,14 +68,14 @@ class FormValidator {
 
   _hideInputErrors() {
     const inputsList =[...this._form.querySelectorAll(this._config.inputSelector)];
-    inputsList.forEach((input) => this._hideError(input, form));
+    inputsList.forEach((input) => this._hideError(input));
   }
 
-  /* _checkPopupState(popup) {
-    const form = popup.querySelector(this._config.formSelector);
+  _checkPopupState() {
+   // const form = popup.querySelector(this._config.formSelector);
     this._setSubmitButtonState();
     this._hideInputErrors();
-  }  */
+  }  
 
   _setSubmitButtonState() {
     const button = this._form.querySelector(this._config.submitButtonSelector);

@@ -25,7 +25,7 @@ const placeUrl = document.querySelector('.popup__input_type_place-url');
 
 import {initialCards} from './initial-cards.js';
 import {Card} from './Card.js';
-import {FormValidator, config} from "./validate.js";
+import {FormValidator, config} from "./FormValidator.js";
 
 function appendElement(item){
   const card = new Card(item, '.element-template');
@@ -92,10 +92,10 @@ function openEditPopup() {
   fieldStatus.value = profileStatus.textContent;
   //checkPopupState(popupEditProfile);        //настроить работу без этого метода
   //checkPopupState(popupEditProfile, config);
-  new FormValidator(config, popupFormEditContent).enableValidation(); 
+  
   openPopup(popupEditProfile);
 }  
-
+new FormValidator(config, popupFormEditContent).enableValidation(); 
 function editProfile(event) {
   event.preventDefault();
   profileName.textContent = fieldName.value;
@@ -119,10 +119,10 @@ function openAddPopup() {
   popupFormAddContent.reset();
   //checkPopupState(popupAddContent, config);
   //checkPopupState(popupAddContent);
-  new FormValidator(config, popupFormAddContent).enableValidation(); 
+  
   openPopup(popupAddContent);
 }  
-
+new FormValidator(config, popupFormAddContent).enableValidation(); 
 
 
 profileEditButton.addEventListener('click', openEditPopup);
