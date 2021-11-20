@@ -15,10 +15,15 @@ const popupAddContent = document.querySelector('.popup_type_add');
 const popupFormAddContent = document.querySelector('.popup__form_add-content');
 const placeName = document.querySelector('.popup__input_type_place-name');
 const placeUrl = document.querySelector('.popup__input_type_place-url');
+//Show image feature
+const popupShowImage = document.querySelector('.popup_type_show-image');
+const popupImage = popupShowImage.querySelector('.popup__image');
+const popupCaption = popupShowImage.querySelector('.popup__caption');
 
 import {initialCards} from './initial-cards.js';
-import {Card} from './Card.js';
-import {FormValidator, config} from "./FormValidator.js";
+import Card from './Card.js';
+import {FormValidator} from "./FormValidator.js";
+import config from "./validationConfig.js";
 
 function appendElement(item){
   const card = new Card(item, '.element-template');
@@ -40,10 +45,12 @@ function openPopup(popupName) {
   document.addEventListener('click', closeByOverlay);
 }
 
+const formEditContentValitator = new FormValidator(config, popupFormEditContent);
+
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
   fieldStatus.value = profileStatus.textContent;
-  new FormValidator(config, popupFormEditContent).enableValidation(); 
+  formEditContentValitator.enableValidation(); 
   openPopup(popupEditProfile);
 }  
 
@@ -66,9 +73,11 @@ function addElement(event){
 
 }
 
+const formAddContentValidator = new FormValidator(config, popupFormAddContent);
+
 function openAddPopup() {
   popupFormAddContent.reset();
-  new FormValidator(config, popupFormAddContent).enableValidation(); 
+  formAddContentValidator.enableValidation(); 
   openPopup(popupAddContent);
 }  
 
@@ -110,9 +119,4 @@ function closeByOverlay(event) {
   }
 }
 
-export {openPopup, closePopup};
-
-window.addEventListener('load', ()=>{
-  document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'))
-})
-
+export {openPopup, closePopup, popupShowImage, popupImage, popupCaption};

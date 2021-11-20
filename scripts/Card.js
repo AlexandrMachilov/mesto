@@ -1,6 +1,4 @@
-const popupShowImage = document.querySelector('.popup_type_show-image');
-const popupImage = popupShowImage.querySelector('.popup__image');
-const popupCaption = popupShowImage.querySelector('.popup__caption');
+import {openPopup,popupShowImage, popupImage, popupCaption} from './index.js';
 
 class Card {
   
@@ -25,22 +23,21 @@ class Card {
     }
   
     _setEventListeners() {
-      const elementButtonLike = this._element.querySelector('.element__button_action_like');
-      elementButtonLike.addEventListener('click', this._likeClickHandler);
+
+      this._element.querySelector('.element__button_action_like').addEventListener('click', () => this._likeClickHandler());
   
-      const elementButtonDelete = this._element.querySelector('.element__button_action_delete');
-      elementButtonDelete.addEventListener('click', this._deleteClickHandler);
+      this._element.querySelector('.element__button_action_delete').addEventListener('click', () => this._deleteClickHandler());
       
-      const elementImage = this._element.querySelector('.element__image');
-      elementImage.addEventListener('click', () => this._showImage());
+      this._element.querySelector('.element__image').addEventListener('click', () => this._showImage());
     }
   
-    _likeClickHandler(event) {
-      event.target.classList.toggle('element__button_action_like_active');
+    _likeClickHandler() {
+      this._element.querySelector('.element__button_action_like').classList.toggle('element__button_action_like_active');
     }
   
-    _deleteClickHandler(event) {
-      event.target.closest('.element').remove(); 
+    _deleteClickHandler() {
+      this._element.closest('.element').remove(); 
+      this._element = null;
     }
   
     _showImage() {
@@ -51,5 +48,4 @@ class Card {
     }
 }
 
-import {openPopup} from './index.js';
-export {Card};
+export default Card;
