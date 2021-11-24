@@ -20,19 +20,19 @@ const popupShowImage = document.querySelector('.popup_type_show-image');
 const popupImage = popupShowImage.querySelector('.popup__image');
 const popupCaption = popupShowImage.querySelector('.popup__caption');
 
-import {initialCards} from './initial-cards.js';
+import initialCards from './initial-cards.js';
 import Card from './Card.js';
-import {FormValidator} from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
 import config from "./validationConfig.js";
 
 function appendElement(item){
-  const card = new Card(item, '.element-template');
+  const card = new Card(item, '.element-template', openPopup);
   const element = card.generateCard();
   elements.append(element);
 } 
 
 function prependElement(item){
-  const card = new Card(item, '.element-template');
+  const card = new Card(item, '.element-template', openPopup);
   const element = card.generateCard();
   elements.prepend(element);
 }  
@@ -45,12 +45,46 @@ function openPopup(popupName) {
   document.addEventListener('click', closeByOverlay);
 }
 
+function closePopup(popupName) {
+  popupName.classList.remove('popup_isopen');
+  document.removeEventListener('keydown', closeByEsc);
+  document.removeEventListener('click', closeByOverlay);
+} 
+
+function setCloseButtons(popup) {
+  const closeButtonList = [...popup.querySelectorAll('.popup__button_action_close')];
+  closeButtonList.forEach((closeButton) => {
+    closeButton.addEventListener('click', () => closePopup(popup))
+});
+}
+
+function popupCloseHandler(popupList){
+  popupList.forEach((popup) => setCloseButtons(popup));
+};
+
+popupCloseHandler(popupList);
+
+function closeByEsc(event) {
+  const openedPopup = document.querySelector('.popup_isopen');
+   if (event.key === 'Escape') {
+    closePopup(openedPopup);
+  } 
+} 
+
+function closeByOverlay(event) {
+  const openedPopup = document.querySelector('.popup_isopen');
+  if (event.target.classList.contains('popup')) {
+    closePopup(openedPopup);
+  }
+}
+
 const formEditContentValitator = new FormValidator(config, popupFormEditContent);
+formEditContentValitator.enableValidation(); 
 
 function openEditPopup() {
   fieldName.value = profileName.textContent; 
   fieldStatus.value = profileStatus.textContent;
-  formEditContentValitator.enableValidation(); 
+  formEditContentValitator.setFormState();  //установки состояния кнопки формы при открытии попапа
   openPopup(popupEditProfile);
 }  
 
@@ -74,10 +108,11 @@ function addElement(event){
 }
 
 const formAddContentValidator = new FormValidator(config, popupFormAddContent);
+formAddContentValidator.enableValidation();
 
 function openAddPopup() {
   popupFormAddContent.reset();
-  formAddContentValidator.enableValidation(); 
+  formAddContentValidator.setFormState(); //установки состояния кнопки формы при открытии попапа
   openPopup(popupAddContent);
 }  
 
@@ -85,38 +120,5 @@ profileEditButton.addEventListener('click', openEditPopup);
 popupFormEditContent.addEventListener('submit', editProfile);
 contentAddButton.addEventListener('click', openAddPopup);
 popupFormAddContent.addEventListener('submit', addElement);
-
-function popupCloseHandler(popupList){
-  popupList.forEach((popup) => setCloseButtons(popup));
-};
-
-popupCloseHandler(popupList);
-
-function setCloseButtons(popup) {
-  const closeButtonList = [...popup.querySelectorAll('.popup__button_action_close')];
-  closeButtonList.forEach((closeButton) => {
-    closeButton.addEventListener('click', () => closePopup(popup))
-});
-}
-
-function closePopup(popupName) {
-  popupName.classList.remove('popup_isopen');
-  document.removeEventListener('keydown', closeByEsc);
-  document.removeEventListener('click', closeByOverlay);
-} 
-
-function closeByEsc(event) {
-  const openedPopup = document.querySelector('.popup_isopen');
-   if (event.key === 'Escape') {
-    closePopup(openedPopup);
-  } 
-} 
-
-function closeByOverlay(event) {
-  const openedPopup = document.querySelector('.popup_isopen');
-  if (event.target.classList.contains('popup')) {
-    closePopup(openedPopup);
-  }
-}
 
 export {openPopup, closePopup, popupShowImage, popupImage, popupCaption};

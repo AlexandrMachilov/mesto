@@ -2,10 +2,11 @@ import {openPopup,popupShowImage, popupImage, popupCaption} from './index.js';
 
 class Card {
   
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, openPopup) {
       this._link = data.link;
       this._name = data.name;
       this._cardSelector = cardSelector;
+      this._openPopup = openPopup;
     }
   
     _getTemplate() {
@@ -44,7 +45,7 @@ class Card {
       popupImage.src = this._link;
       popupImage.alt = this._name;
       popupCaption.textContent = this._name;
-      openPopup(popupShowImage);
+      this._openPopup(popupShowImage);
     }
 }
 
