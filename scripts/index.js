@@ -28,6 +28,7 @@ import config from "./validationConfig.js";
 import Section from './Section.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
+import UserInfo from './UserInfo.js';
 
 
 const cardsList = new Section({
@@ -101,11 +102,13 @@ function closeByOverlay(event) {
   }
 }
 */
+const ProfileUserInfo = new UserInfo('.profile__name', '.profile__status');
+
 const formAddContentValidator = new FormValidator(config, popupFormAddContent);
 formAddContentValidator.enableValidation();
 
-const popupAdd = new PopupWithForm('.popup_type_add', addCard);   //Rename popupAdd
-popupAdd.setEventListeners();
+const PopupAdd = new PopupWithForm('.popup_type_add', addCard);   //Rename popupAdd
+PopupAdd.setEventListeners();
 
 function addCard() {
   const cardData = { 
@@ -115,7 +118,7 @@ function addCard() {
   const newCard = new Card(cardData, '.element-template', handleCardClick);
   const element = newCard.generateCard();
   cardsList.addItem(element);
-  popupAdd.close();
+  PopupAdd.close();
 } 
 
 const formEditContentValitator = new FormValidator(config, popupFormEditContent);
@@ -125,8 +128,9 @@ const popupEdit = new PopupWithForm('.popup_type_edit', editProfile);
 popupEdit.setEventListeners();
 
 function editProfile() {
-  profileName.textContent = fieldName.value;
-  profileStatus.textContent = fieldStatus.value;
+  ProfileUserInfo.setUserInfo('.popup__input_type_name', '.popup__input_type_status');
+  /* profileName.textContent = fieldName.value;
+  profileStatus.textContent = fieldStatus.value;  */
   popupEdit.close();
 }
 
@@ -164,6 +168,9 @@ function editProfile() {
 }   */
 
 profileEditButton.addEventListener('click', () => { //добавить внесение данных при открытии
+  const profileUserData = ProfileUserInfo.getUserInfo();
+  fieldName.value = profileUserData.name;
+  fieldStatus.value = profileUserData.status;
   formEditContentValitator.setFormState();
   popupEdit.open()
 });   
@@ -171,7 +178,7 @@ profileEditButton.addEventListener('click', () => { //добавить внес�
 //contentAddButton.addEventListener('click', openAddPopup);
 contentAddButton.addEventListener('click',() => {
   formAddContentValidator.setFormState();
-  popupAdd.open()
+  PopupAdd.open()
 });
 //popupFormAddContent.addEventListener('submit', addElement);
 
