@@ -1,5 +1,3 @@
-import config from './validationConfig.js';
-
 class FormValidator {
 
   constructor(validationConfig, form) {

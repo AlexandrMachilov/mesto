@@ -18,6 +18,5 @@ export default class Section {
         } else {
             this._container.prepend(item);
         }
-        //this._container.append(item);
     }
 }
