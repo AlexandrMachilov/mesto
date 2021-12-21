@@ -3,6 +3,8 @@ class FormValidator {
   constructor(validationConfig, form) {
     this._config = validationConfig;
     this._form = form;
+    this._inputsList =[...this._form.querySelectorAll(this._config.inputSelector)];
+    this._button = this._form.querySelector(this._config.submitButtonSelector);
   }
 
   _showError(input) {
@@ -20,8 +22,7 @@ class FormValidator {
   }
 
   _hideInputErrors() {
-    const inputsList =[...this._form.querySelectorAll(this._config.inputSelector)];
-    inputsList.forEach((input) => this._hideError(input));
+    this._inputsList.forEach((input) => this._hideError(input));
   }
 
   _handlerFieldValidation(input) {
@@ -33,27 +34,25 @@ class FormValidator {
   } 
 
   _hasInvalidInput() {
-    const inputsList =[...this._form.querySelectorAll(this._config.inputSelector)];
-    return inputsList.some((inputElement) => {
+    return this._inputsList.some((inputElement) => {
       return  !inputElement.validity.valid;
     })
   }
 
   _setSubmitButtonState() {
-    const button = this._form.querySelector(this._config.submitButtonSelector);
+    
     if (this._hasInvalidInput()) {
-      button.disabled = true;
-      button.classList.add(this._config.inactiveButtonClass);
+      this._button.disabled = true;
+      this._button.classList.add(this._config.inactiveButtonClass);
     } else {
-      button.classList.remove(this._config.inactiveButtonClass);
-      button.disabled = false;
+      this._button.classList.remove(this._config.inactiveButtonClass);
+      this._button.disabled = false;
     }
   }
 
   _setFormListeners() { 
     this._form.addEventListener('submit', (event) => event.preventDefault());
-    const inputsList =[...this._form.querySelectorAll(this._config.inputSelector)];
-    inputsList.forEach(inputElement => {
+    this._inputsList.forEach(inputElement => {
       inputElement.addEventListener('input', () => {
         this._handlerFieldValidation(inputElement);
         this._setSubmitButtonState();
@@ -68,7 +67,6 @@ class FormValidator {
   }  
 
   enableValidation() {
-    document.querySelector(this._config.formSelector);
     this._setFormListeners(this._form);
   }
 }
