@@ -1,7 +1,7 @@
 .element__description {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   background-color: #fff;
   min-height: 79px;
   width: 100%;

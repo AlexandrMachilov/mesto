@@ -10,3 +10,6 @@ export const contentAddButton = document.querySelector('.profile__button_action_
 export const popupFormAddContent = document.querySelector('.popup__form_add-content');
 export const placeName = document.querySelector('.popup__input_type_place-name');
 export const placeUrl = document.querySelector('.popup__input_type_place-url');
+export const profileAvatar = document.querySelector('.profile__avatar');
+export const avatarEditButton = document.querySelector('.profile__button_action_edit-avatar');
+export const popupFormEditAvatar = document.querySelector('.popup__form_edit-avatar');
