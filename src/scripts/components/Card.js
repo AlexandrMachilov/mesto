@@ -34,9 +34,7 @@ export default class Card {
     }
   
     _setEventListeners() {
-      //this._element.querySelector('.element__button_action_like').addEventListener('click', () => this._likeClickHandler());
       this._element.querySelector('.element__button_action_like').addEventListener('click', () => this._handleLikeButtonClick(this._likes));
-      //this._element.querySelector('.element__button_action_delete').addEventListener('click', () => this._deleteClickHandler());
       this._element.querySelector('.element__button_action_delete').addEventListener('click', () => this._handleDeleteButtonCLick());
       this._element.querySelector('.element__image').addEventListener('click', () => this._handleCardClick(this._name, this._link));
     }
@@ -50,10 +48,7 @@ export default class Card {
         this._element.querySelector('.element__button_action_delete').remove();
       } 
     }
-    /* _deleteClickHandler() {
-      this._element.closest('.element').remove(); 
-      this._element = null;
-    } */
+    
     deleteCard(){
       this._element.closest('.element').remove(); 
       this._element = null;
@@ -63,7 +58,6 @@ export default class Card {
       if (data.likes.length === 0) {
         this._element.querySelector('.element__likes-number').textContent = '';
       } else {
-        //this._element.querySelector('.element__likes-number').textContent = this._likes.length;
       this._element.querySelector('.element__likes-number').textContent = data.likes.length;
       }
     }
@@ -71,13 +65,7 @@ export default class Card {
     updateLikesNumber(data){
       this._likes = data.likes
     }
-   /*  changeLikesNumber(data) {
-      if (this._likes.length === 0) {
-        this._element.querySelector('.element__likes-number').textContent = '';
-      } else {
-        this._element.querySelector('.element__likes-number').textContent = data.likes.length;
-      }
-    } */
+   
     setLikeButtonState(){
       if (this.isLiked()) {
         this._element.querySelector('.element__button_action_like').classList.add('element__button_action_like_active');

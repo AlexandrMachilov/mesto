@@ -8,16 +8,10 @@ import {
   elementsContainer,
   contentAddButton,
   popupFormAddContent,
-  profileName,
-  profileStatus,
-  placeName,
-  placeUrl,
-  profileAvatar,
   avatarEditButton,
   popupFormEditAvatar
  } from "../scripts/utils/constants.js";
 
-//import initialCards from '../scripts/utils/initial-cards.js';
 import Card from '../scripts/components/Card.js';
 import FormValidator from "../scripts/components/FormValidator.js";
 import config from "../scripts/utils/validationConfig.js";
@@ -45,31 +39,6 @@ Promise.all([api.getProfileInfo(), api.getInitialCards()])
   .catch(err => {
     console.log('Ошибка', err);
   })
-  
-/* api.getProfileInfo()
-  .then(res => {
-    const loadProfileData = {
-      name: res.name,
-      about: res.about,
-    }
-    profileAvatar.src = res.avatar;
-    profileUserInfo.setUserInfo(loadProfileData);
-
-  })
-  .catch(err => {
-    console.log('Ошибка', err);
-  })
-
-api.getInitialCards()
-  .then(res => {
-    cardsList.renderItems(res);
-    res.forEach(item => { 
-      console.log(`${item._id} LIKE NUMBER ${item.likes.length}`);
-    }); 
-  })
-  .catch(err => {
-    console.log('Ошибка', err);
-  }) */
 
 
 const fullSizeImage = new PopupWithImage('.popup_type_show-image');
@@ -107,11 +76,9 @@ function createCard(item) {
       if (!card.isLiked()) {
         api.likeCard(card)
           .then((res) => {            
-            //card.setLikeButtonState();
             card.likeButtonSwitch()
             card.setLikesNumber(res);
             card.updateLikesNumber(res);
-            //card.changeLikesNumber(res)
           })
           .catch(err => {
             console.log('Ошибка', err);
@@ -119,11 +86,9 @@ function createCard(item) {
       } else {
         api.deleteLike(card)
         .then((res) => {
-          //card.setLikeButtonState();
           card.likeButtonSwitch();
           card.setLikesNumber(res);
           card.updateLikesNumber(res);
-          //card.changeLikesNumber(res)
         })
         .catch(err => {
           console.log('Ошибка', err);
@@ -142,18 +107,6 @@ const cardsList = new Section({
 },
 elementsContainer
 );
-
-/* const cardsList = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const element = createCard(item);
-    cardsList.addItem(element, true);
-  }
-},
-elementsContainer
-); */
-
-//cardsList.renderItems();
 
 const profileUserInfo = new UserInfo('.profile__name', '.profile__status', '.profile__avatar');
 
@@ -175,7 +128,6 @@ function editProfile(itemData) {
   .finally(() => {
     popupEdit.renderLoading(false);
  }) 
-  //profileUserInfo.setUserInfo(newProfileData);
   popupEdit.close();
 } 
 

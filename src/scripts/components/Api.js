@@ -49,7 +49,6 @@ export default class Api{
         })
         .then(res => {
             if (res.ok) {
-                console.log(res);
                 return res.json();
             } else {
                 return Promise.reject(`Ошибка при изменении данных профиля ${res.status}`);
@@ -71,7 +70,6 @@ export default class Api{
         })
         .then(res => {
             if (res.ok) {
-            
                 return res.json();
             } else {
                 return Promise.reject(`Ошибка при создании новой карточки ${res.status}`);
@@ -140,7 +138,6 @@ export default class Api{
         })
         .then(res => {
             if (res.ok) {
-                console.log(res);
                 return res.json();
             } else {
                 return Promise.reject(`Ошибка при изменении аватара профиля ${res.status}`);

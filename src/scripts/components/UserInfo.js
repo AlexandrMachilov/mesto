@@ -17,7 +17,6 @@ export default class UserInfo{
         this._profileData = profileData;
         this._name.textContent = this._profileData.name;
         this._status.textContent = this._profileData.about;
-        //
     } 
 
     getUserId(data){
