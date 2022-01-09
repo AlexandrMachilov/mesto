@@ -5,19 +5,20 @@ export default class Api{
         this.token = token
     }
 
+    _getResponseData(res){
+        if (!res.ok){
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
+        return res.json();
+    }
+    
     getProfileInfo() {
         return fetch(`${this.adress}/v1/${this.cohortID}/users/me`, {
             headers: {
               authorization: this.token
             }
           })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка при получении дынных профиля ${res.status}`);
-                }
-            })
+            .then(res => this._getResponseData(res))
     }
 
     getInitialCards() {
@@ -26,13 +27,7 @@ export default class Api{
               authorization: this.token
             }
           })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(`Ошибка при получении данных карточек ${res.status}`);
-                }
-            })
+            .then(res => this._getResponseData(res))
     }
 
     editProfileData(data){
@@ -47,13 +42,7 @@ export default class Api{
                 about: data.about
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при изменении данных профиля ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 
     createCard(data){
@@ -68,13 +57,7 @@ export default class Api{
                 link: data.link
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при создании новой карточки ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 
     deleteCard(data){
@@ -84,13 +67,7 @@ export default class Api{
                 authorization: this.token
             }
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при удалении карточки ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 
     likeCard(data){
@@ -100,13 +77,7 @@ export default class Api{
                 authorization: this.token
             }
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при постановке лайка ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 
     deleteLike(data){
@@ -116,13 +87,7 @@ export default class Api{
                 authorization: this.token
             }
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при снятии лайка ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 
     editAvatar(data){
@@ -136,12 +101,6 @@ export default class Api{
                 avatar: data.avatar,
             })
         })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                return Promise.reject(`Ошибка при изменении аватара профиля ${res.status}`);
-            }
-        })
+        .then(res => this._getResponseData(res))
     }
 }

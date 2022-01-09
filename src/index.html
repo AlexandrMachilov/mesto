@@ -60,7 +60,7 @@
           <h3 class="popup__title">Редактировать профиль</h3>
           <form
             class="popup__form popup__form_edit-content"
-            name="popup-form"
+            name="form-edit"
             novalidate
           >
             <input
@@ -107,7 +107,7 @@
           <h3 class="popup__title">Новое место</h3>
           <form
             class="popup__form popup__form_add-content"
-            name="popup-form"
+            name="form-add"
             novalidate
           >
             <input
@@ -161,7 +161,7 @@
             class="popup__button popup__button_action_close popup__button_action_close-confirm"
           ></button>
           <h3 class="popup__title popup__title_type_confirm">Вы уверены?</h3>
-          <form class="popup__form popup__form_confirm" name="popup-form">
+          <form class="popup__form popup__form_confirm" name="form-delete">
             <button
               type="submit"
               class="popup__button popup__button_action_submit popup__button_action_confirm"
@@ -182,11 +182,11 @@
           <h3 class="popup__title">Обновить аватар</h3>
           <form
             class="popup__form popup__form_edit-avatar"
-            name="popup-form"
+            name="form-avatar"
             novalidate
           >
             <input
-              type="text"
+              type="url"
               class="popup__input popup__input_type_edit-avatar"
               name="avatar"
               id="edit-avatar"

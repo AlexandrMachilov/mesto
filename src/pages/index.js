@@ -63,11 +63,12 @@ function createCard(item) {
         api.deleteCard(card)
           .then(() => {
             card.deleteCard();
+            popupConfirmDelete.close();
           })
           .catch(err => {
             console.log('Ошибка', err);
           })
-        popupConfirmDelete.close();
+        
       })
     }
   },
@@ -121,14 +122,17 @@ function editProfile(itemData) {
   }
   popupEdit.renderLoading(true);
   api.editProfileData(newProfileData)
-  .then(res => profileUserInfo.setUserInfo(res))
+  .then(res => {
+    profileUserInfo.setUserInfo(res)
+    popupEdit.close();
+  })
   .catch(err => {
     console.log('Ошибка', err);
   })
   .finally(() => {
     popupEdit.renderLoading(false);
  }) 
-  popupEdit.close();
+  
 } 
 
 const formEditContentValitator = new FormValidator(config, popupFormEditContent);
@@ -160,11 +164,12 @@ function addCard(itemData) {
   .then(res => {
     const element = createCard(res);
     cardsList.addItem(element);
+    popupAdd.close();
   })
   .finally(() => {
     popupAdd.renderLoading(false);
  }) 
-  popupAdd.close();
+  
 } 
 
 contentAddButton.addEventListener('click',() => {
