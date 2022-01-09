@@ -60,5 +60,5 @@
 @import url(../blocks/popup/__container/_type/popup__container_type_confirm.css);
 @import url(../blocks/popup/__title/_type/popup__title_type_confirm.css);
 @import url(../blocks/popup/__container/_type/popup__container_type_small.css);
-@import url(../blocks/profile/__button/_action/profile__button_action_edit-avatar.css);
-@import url(../blocks/profile/__avatar/_wraper/profile__avatar_wraper.css);
+@import url(../blocks/profile/__button/_action/profile__button_action_edit_avatar.css);
+@import url(../blocks/profile/__avatar/profile__avatar-wraper.css);

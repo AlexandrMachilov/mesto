@@ -1,4 +1,4 @@
-.profile__button_action_edit-avatar {
+.profile__button_action_edit_avatar {
   position: absolute;
   width: 120px;
   height: 120px;
@@ -12,6 +12,6 @@
   opacity: 0;
 }
 
-.profile__button_action_edit-avatar:hover {
+.profile__button_action_edit_avatar:hover {
   opacity: 0.8;
 }
